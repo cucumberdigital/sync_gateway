@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
+  <remote fetch="https://github.com/cucumberdigital/" name="cucumberdigital"/>
   <remote fetch="https://github.com/couchbase/" name="couchbase"/>
   <remote fetch="https://github.com/couchbaselabs/" name="couchbaselabs"/>
   <remote fetch="https://github.com/couchbasedeps/" name="couchbasedeps"/>
@@ -29,7 +30,7 @@
 
   
   <!-- Sync Gateway -->
-  <project name="sync_gateway" path="godeps/src/github.com/couchbase/sync_gateway" remote="couchbase"/> 
+  <project name="sync_gateway" path="godeps/src/github.com/cucumberdigital/sync_gateway" remote="cucumberdigital"/> 
 
   
   <!-- Sync Gateway Accel-->
