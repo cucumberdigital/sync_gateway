@@ -11,6 +11,8 @@ package auth
 
 import (
 	"encoding/json"
+	"fmt"
+	"strings"
 
 	"github.com/coreos/go-oidc/jose"
 	"github.com/coreos/go-oidc/oidc"
@@ -399,6 +401,28 @@ func (auth *Authenticator) authenticateJWT(jwt jose.JWT, provider *OIDCProvider)
 		if err != nil {
 			base.Debugf(base.KeyAuth, "Error registering new user: %v", err)
 			return nil, jwt, err
+		}
+	}
+
+	if user != nil {
+		claims, err := jwt.Claims()
+		if err == nil {
+			user.SetExplicitRoles(ch.TimedSet{})
+			resourceAccess := claims["resource_access"].(map[string]interface{})
+			value, ok := resourceAccess[*provider.ClientID]
+			if ok {
+				r := value.(map[string]interface{})["roles"].([]interface{})
+				c := make([]string, len(r))
+				for i := range r {
+					c[i] = r[i].(string)
+				}
+
+				user.SetExplicitRoles(ch.TimedSetFromString(fmt.Sprintf("%s:1", strings.Join(c, ":1,"))))
+			} else {
+				base.Debugf(base.KeyAuth, "Key not found: %s", *provider.ClientID)
+			}
+
+			auth.Save(user)
 		}
 	}
 

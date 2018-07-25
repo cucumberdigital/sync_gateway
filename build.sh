@@ -11,7 +11,7 @@ fi
 updateVersionStamp () {
 
     # Build path to SG code directory
-    SG_DIR=$GOPATH/src/github.com/couchbase/sync_gateway
+    SG_DIR=$GOPATH/src/github.com/cucumberdigital/sync_gateway
 
     # Save the current directory
     CURRENT_DIR=`pwd`
@@ -29,7 +29,7 @@ updateVersionStamp
 
 ## Go Install Sync Gateway
 echo "Building Sync Gateway with 'go install' ..."
-go install "$@" github.com/couchbase/sync_gateway/...
+go install "$@" github.com/cucumberdigital/sync_gateway/...
 echo "Success!"
 # Let user where to know where to find binaries
 if [ -f godeps/bin/sync_gateway ]; then

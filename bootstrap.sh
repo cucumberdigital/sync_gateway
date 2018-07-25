@@ -22,7 +22,7 @@ PRODUCT="sg"
 # Even when we build sg-accel, we want to grab the sync_gateway
 # repo since it includes sg-accel in it's manifest and will
 # build *both* sync gateway and sg-accel
-TARGET_REPO="https://github.com/couchbase/sync_gateway.git"
+TARGET_REPO="https://github.com/cucumberdigital/sync_gateway.git"
 			
 # By default, will run "repo init" followed by "repo sync".
 # If this is set to 1, skips "repo sync" 
@@ -95,10 +95,10 @@ parseOptions () {
 # in that case.  I have left that in for now since it enables certain testing.
 rewriteManifest () {
 
-    curl "https://raw.githubusercontent.com/couchbase/sync_gateway/$COMMIT/rewrite-manifest.sh" > rewrite-manifest.sh
+    curl "https://raw.githubusercontent.com/cucumberdigital/sync_gateway/$COMMIT/rewrite-manifest.sh" > rewrite-manifest.sh
     chmod +x rewrite-manifest.sh
 
-    MANIFEST_URL="https://raw.githubusercontent.com/couchbase/sync_gateway/$COMMIT/manifest/default.xml"
+    MANIFEST_URL="https://raw.githubusercontent.com/cucumberdigital/sync_gateway/$COMMIT/manifest/default.xml"
     PROJECT_NAME="sync_gateway"
 
     echo "Using manifest: $MANIFEST_URL on commit $COMMIT for project $PROJECT_NAME with username: $GITHUB_USERNAME"
@@ -110,31 +110,31 @@ downloadHelperScripts () {
 
     if [ ! -f build.sh ]; then
 	echo "Downloading build.sh"
-	curl -s "https://raw.githubusercontent.com/couchbase/sync_gateway/$COMMIT/build.sh" > build.sh
+	curl -s "https://raw.githubusercontent.com/cucumberdigital/sync_gateway/$COMMIT/build.sh" > build.sh
 	chmod +x build.sh    
     fi
 
     if [ ! -f test.sh ]; then
 	echo "Downloading test.sh"
-	curl -s "https://raw.githubusercontent.com/couchbase/sync_gateway/$COMMIT/test.sh" > test.sh
+	curl -s "https://raw.githubusercontent.com/cucumberdigital/sync_gateway/$COMMIT/test.sh" > test.sh
 	chmod +x test.sh
     fi
 
     if [ ! -f test_with_coverage.sh ]; then
 	echo "Downloading test_with_coverage.sh"
-	curl -s "https://raw.githubusercontent.com/couchbase/sync_gateway/$COMMIT/test_with_coverage.sh" > test_with_coverage.sh
+	curl -s "https://raw.githubusercontent.com/cucumberdigital/sync_gateway/$COMMIT/test_with_coverage.sh" > test_with_coverage.sh
 	chmod +x test_with_coverage.sh
     fi
 
     if [ ! -f bench.sh ]; then
 	echo "Downloading bench.sh"
-	curl -s "https://raw.githubusercontent.com/couchbase/sync_gateway/$COMMIT/bench.sh" > bench.sh
+	curl -s "https://raw.githubusercontent.com/cucumberdigital/sync_gateway/$COMMIT/bench.sh" > bench.sh
 	chmod +x bench.sh
     fi
 
     if [ ! -f snap-manifest.sh ]; then
 	echo "Downloading snap-manifest.sh"
-	curl -s "https://raw.githubusercontent.com/couchbase/sync_gateway/$COMMIT/snap-manifest.sh" > snap-manifest.sh
+	curl -s "https://raw.githubusercontent.com/cucumberdigital/sync_gateway/$COMMIT/snap-manifest.sh" > snap-manifest.sh
 	chmod +x snap-manifest.sh
     fi
     

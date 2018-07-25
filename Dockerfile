@@ -18,7 +18,7 @@ RUN git config --global color.ui false
 
 # Download and run the bootstrap.sh script which will download and invoke the repo
 # tool to grap all required repositories
-RUN wget https://raw.githubusercontent.com/couchbase/sync_gateway/$COMMIT/bootstrap.sh && \
+RUN wget https://raw.githubusercontent.com/cucumberdigital/sync_gateway/$COMMIT/bootstrap.sh && \
     cat bootstrap.sh && \
     chmod +x bootstrap.sh && \
     ./bootstrap.sh -c $COMMIT -p sg
