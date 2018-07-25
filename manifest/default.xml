@@ -30,7 +30,7 @@
 
   
   <!-- Sync Gateway -->
-  <project name="sync_gateway" path="godeps/src/github.com/cucumberdigital/sync_gateway" remote="cucumberdigital"/> 
+  <project name="sync_gateway" path="godeps/src/github.com/couchbase/sync_gateway" remote="cucumberdigital"/> 
 
   
   <!-- Sync Gateway Accel-->
